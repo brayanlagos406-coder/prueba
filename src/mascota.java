@@ -6,6 +6,8 @@ public class mascota {
     private double peso;
     private boolean saludable;
 
+
+
     // Constructor
     public mascota(String nombre, String especie, int edad, double peso, boolean saludable) {
         this.nombre = nombre;
@@ -67,6 +69,8 @@ public class mascota {
     }
     // MÉTODOS PROPIOS
 
+
+
     public int cumplirAnios(int años) {
 
         return edad += años;
@@ -103,4 +107,5 @@ public class mascota {
         System.out.println("Estado: " + (saludable ? "Saludable" : "Enfermo"));
         System.out.println("----------------------------");
     }
+
 }

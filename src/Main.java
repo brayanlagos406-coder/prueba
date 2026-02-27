@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class Main {
 
@@ -6,55 +9,81 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        mascota mascota = new mascota("Max", "Perro", 3, 10.5, true);
-
-        System.out.println("ESTADO INICIAL:");
-        mascota.mostrarFicha();
-
-        System.out.println("¿Qué desea hacer?");
-        System.out.println("1. Cumplir años");
-        System.out.println("2. Engordar");
-        System.out.println("3. Adelgazar");
-        System.out.println("4. Cambiar estado a enfermo");
-        System.out.println("5. cambiar estado a saludable");
-
-        int opcion = sc.nextInt();
-
-        if (opcion == 1) {
-
-            System.out.println("¿Cuántos años desea aumentar?");
-            int años = sc.nextInt();
-            mascota.cumplirAnios(años);
+        List<mascota> lstlista = new ArrayList<>();
 
 
+        //List<String> lstNombres = new ArrayList<>();
+        //lstNombres.add(personaje1);
 
-        } else if (opcion == 2) {
+        int op;
 
-            System.out.println("¿Cuántos kilos desea aumentar?");
-            double kilos = sc.nextDouble();
-            mascota.engordar(kilos);
 
-        } else if (opcion == 3) {
+        //menu de interaccion
 
-            System.out.println("¿Cuántos kilos desea disminuir?");
-            double kilos = sc.nextDouble();
-            mascota.adelgazar(kilos);
+        do{
+            System.out.println("1. Crear mascota");
+            System.out.println("2. mostrar la lista");
+            System.out.println("3. buscar mascota en la lista");
+            System.out.println("4. salir");
+            System.out.println("selecciona una opcion");
+            op = sc.nextInt();
+            switch (op){
+                case 1:
+                    System.out.println("1. crear un objeto");
 
-        } else if (opcion == 4) {
+                    System.out.println("Ingrese el nombre de la mascota");
+                    String nombre = sc.next();
 
-            mascota.enfermar();
+                    System.out.println("Ingrese la especie del animal");
+                    String especie = sc.next();
 
-        } else if (opcion == 5) {
+                    System.out.println("Ingrese la edad");
+                    int edad = sc.nextInt();
 
-            mascota.recuperarSalud();
+                    System.out.println("Ingrese el peso");
+                    double peso = sc.nextDouble();
 
-        } else {
+                    System.out.println("Esta saludable");
 
-            System.out.println("Opción no válida");
-        }
 
-        System.out.println("\nESTADO FINAL:");
-        mascota.mostrarFicha();
+
+                    boolean saludable = sc.nextBoolean();
+
+
+
+                    mascota pz1 = new mascota(nombre, especie, edad, peso, saludable);
+
+                    lstlista .add(pz1);
+                    break;
+
+                case 2 :
+                    for (mascota mostarFicha : lstlista){
+                        System.out.println(mostarFicha);
+
+                    }
+                case 3 :
+                    String nombre1;
+                    System.out.println("ingrese el nombre de la mascota");
+                    nombre1 = sc.next();
+
+                    if (lstlista.isEmpty()){
+                        System.out.println("LA LISTA NO TIENE ELEMENTOS");
+
+                    }
+
+                    mascota mas1 = null;
+
+                    for (mascota mostrarFicha: lstlista){
+                        if(mostrarFicha.getNombre().equalsIgnoreCase(nombre1)){
+                            mas1 = mostrarFicha;
+                            System.out.println(mas1.toString());
+                        }
+                    }
+
+            }
+        }while (op!=4);
+
+
 
         sc.close();
     }
