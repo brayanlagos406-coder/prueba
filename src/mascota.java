@@ -71,33 +71,29 @@ public class mascota {
 
 
 
-    public int cumplirAnios(int años) {
+    public int cambiarEdad(int nuevaEdad) {
 
-        return edad += años;
+        if (nuevaEdad > 0) {
+            edad = nuevaEdad;
+        }
 
-
-
-
+        return edad;
     }
 
-    public double engordar(double kilos) {
-        if (kilos > 0) {
-            peso += kilos;
+    public double cambiarPeso(double nuevoPeso) {
 
+        if (nuevoPeso > 0) {
+            peso = nuevoPeso;
         }
+
         return peso;
     }
+    public boolean cambiarSalud(boolean nuevoEstado) {
 
-    public double adelgazar(double kilos) {
-        if (kilos > 0 && peso - kilos > 0) {
-            peso -= kilos;
-        }
-        return peso;
+        saludable = nuevoEstado;
+
+        return saludable;
     }
-
-    public boolean enfermar() { return saludable = false;}
-
-    public boolean recuperarSalud() { return saludable = true;}
 
     public void mostrarFicha() {
         System.out.println("Nombre: " + nombre);
